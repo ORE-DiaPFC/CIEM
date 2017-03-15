@@ -1,3 +1,6 @@
+# Tables used by ICES Working Group on North Atlantic Salmon (WGNAS)
+
+Exploitation rate (table 7), Spawning stock, egg deposition and attainment of CLs, (table 8); Juvenile and adult salmon numbers (estim.) in-river return rate (table 9) for the ORE-DiaPFC rivers
 
 # Tables description:  
 
