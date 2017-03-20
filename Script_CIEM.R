@@ -279,8 +279,8 @@ table[,2] <- YOY_tot_q[,"q0.5"]
 ## ADULTS
 stade <- "adult"
 load(paste("~/Documents/RESEARCH/PROJECTS/ORE/Abundance/Nivelle/",stade,"/results/Results_",stade,"_",year,".RData",sep=""))
-n_1SW <- fit$median$n_1SW # spawners 1SW
-n_MSW <- fit$median$n_MSW # spawners MSW
+n_1SW <- fit$median$c_1SW # spawners 1SW
+n_MSW <- fit$median$c_2SW #+ fit$median$c_3SW # spawners MSW
 
 for (y in 1:(nrow(table))){
 table[y,3] <- n_1SW[y+2] + n_MSW[y+3] # Parr 0+ become 1SW 2 years later / MSW 3 years later; /!\ NA reported if one of the two is missing!!!
