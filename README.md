@@ -7,10 +7,9 @@ Exploitation rate (table 7), Spawning stock, egg deposition and attainment of CL
 - Table 7 - Exploitation rate in the river Scorff
 - Table 8 - Index rivers :spawning stock and egg deposition and attainment of CLs
 - Table 9 - Juvenile and adult salmon  numbers (estim.) in-river return rate in the monitored rivers  
-Nota : juvenile fish are smolts except in r. Nivelle which are parrs 0+ (/!\ parr 0+ year is then reported for r. Nivelle). 
-Adult numbers refer to the smolt year N: runs of N+1 and N+2 (N+2 an N+3 respectively for r. Nivelle)
-These are estimated trap-return numbers of wild fish except in 94-95 years in Nivelle when some stocked fish returned. 
-Stocking is considered to adjust numbers
+Nota : juvenile fish are smolts except in r. Nivelle for which they are parrs 0+ (/!\ parr 0+ year is then reported for r. Nivelle). 
+Adult numbers refer to the smolt year N: runs of N+1 and N+2 (/!\ N+2 to N+5 respectively for r. Nivelle according to the river and sea ages of the returning adults of the same cohort; i.e. year of birth)
+These tables are based on wild fish only except for the river Nivelle were juvenile stocking occurred from 1986 to 1995, which contributed to adult returns from 1988 up to 2000.
 
 # Conservation limits (millions) used: 
 
