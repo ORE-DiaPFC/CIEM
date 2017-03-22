@@ -104,8 +104,8 @@ colnames(table) <- c("Year","1SW",	"MSW",		"eggs (million)",	"eggs/CL")
 table[,"Year"] <- years #rownames(table) <- years
 
 # Spawners:
-table[,"1SW"] <- c(rep(NA,10), fit$median$e_1SW) # spawners 1SW
-table[,"MSW"] <- c(rep(NA,10),fit$median$e_MSW) # spawners MSW
+table[,"1SW"] <- ceiling(c(rep(NA,10), fit$median$e_1SW)) # spawners 1SW
+table[,"MSW"] <- ceiling(c(rep(NA,10),fit$median$e_MSW)) # spawners MSW
 
 # Eggs:
 mcmc <- fit$sims.matrix
@@ -362,8 +362,8 @@ table[21:nrow(table),2] <- Nesc[16:length(Nesc)] # 2002 to now
 ## ADULTS (1984 to now)
 stade <- "adult"
 load(paste("~/Documents/RESEARCH/PROJECTS/ORE/Abundance/",site,"/",stade,"/results/Results_",stade,"_",year,".RData",sep=""))
-n_1SW <- c(NA,NA,fit$median$n_1SW) # spawners 1SW
-n_MSW <- c(NA,NA,fit$median$n_MSW) # spawners MSW
+n_1SW <- ceiling(c(NA,NA,fit$median$n_1SW)) # spawners 1SW
+n_MSW <- ceiling(c(NA,NA,fit$median$n_MSW)) # spawners MSW
 
 for (y in 1:(nrow(table))){
   table[y,3] <- n_1SW[y+1] + n_MSW[y+2] # Smolt 1+ become 1SW 1 years later / MSW 2 years later; /!\ NA reported if one of the two is missing!!!
@@ -405,8 +405,8 @@ table[12:nrow(table),2] <- Nesc # 1995 to now
 ## ADULTS (1984 to now)
 stade <- "adult"
 load(paste("~/Documents/RESEARCH/PROJECTS/ORE/Abundance/",site,"/",stade,"/results/Results_",stade,"_",year,".RData",sep=""))
-n_1SW <- c(rep(NA,10), fit$median$e_1SW) # spawners 1SW
-n_MSW <- c(rep(NA,10),fit$median$e_MSW) # spawners MSW
+n_1SW <- ceiling(c(rep(NA,10), fit$median$e_1SW)) # spawners 1SW
+n_MSW <- ceiling(c(rep(NA,10),fit$median$e_MSW)) # spawners MSW
 
 for (y in 1:(nrow(table))){
   table[y,3] <- n_1SW[y+1] + n_MSW[y+2] # Smolt 1+ become 1SW 1 years later / MSW 2 years later; /!\ NA reported if one of the two is missing!!!
