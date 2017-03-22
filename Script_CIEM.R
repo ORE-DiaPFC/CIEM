@@ -79,15 +79,15 @@ table[,"1SW"] <- fit$median$e_1SW # spawners 1SW
 table[,"MSW"] <- fit$median$e_MSW # spawners MSW
 
 # Eggs
-table[,"eggs (million)"] <- fit$median$eggs_tot / 1e6 # depose eggs
-table[,"eggs/CL"] <- table[,"eggs (million)"] / CL
+table[,"eggs (million)"] <- round(fit$median$eggs_tot / 1e6, 2) # depose eggs
+table[,"eggs/CL"] <- round(table[,"eggs (million)"] / CL, 2)
 
 #write.csv(round(table,2), file=paste('~/Documents/RESEARCH/PROJECTS/ORE/Abundance/CIEM/Table8_',site,"_",year,'.csv',sep=""))
 con <- file(paste('~/Documents/RESEARCH/PROJECTS/ORE/CIEM/Table8_',site,"_",year,'.csv',sep=""), open="wt")
 #writeLines(paste("# Table 8 - Index rivers :spawning stock and egg deposition and attainment of CLs -",site," (",year,")
                  #             Conservation Limit = 1.44 (millions)
                  # ",sep=""), con)
-write.csv( round(table,2), con, row.names = FALSE)
+write.csv( table, con, row.names = FALSE)
 close(con)
 
 ##________________________ SCORFF (starting in 1994)
@@ -126,15 +126,15 @@ CL_eggs <- S_prod[2:(nyear+1)] * CL # /!\ data$S_Sc starts in 1993 instead of 19
 
 ratio_CL <- eggs_tot / CL_eggs
   
-table[,"eggs (million)"] <- c(rep(NA,10),eggs_tot / 1e6) # depose eggs
-table[,"eggs/CL"] <- c(rep(NA,10),ratio_CL)
+table[,"eggs (million)"] <- c(rep(NA,10), round(eggs_tot / 1e6, 2)) # depose eggs
+table[,"eggs/CL"] <- c(rep(NA,10),round(ratio_CL,2))
 
 #write.csv(round(table,2), file=paste('~/Documents/RESEARCH/PROJECTS/ORE/Abundance/CIEM/Table8_',site,"_",year,'.csv',sep=""))
 con <- file(paste('~/Documents/RESEARCH/PROJECTS/ORE/CIEM/Table8_',site,"_",year,'.csv',sep=""), open="wt")
 # writeLines(paste("# Table 8 - Index rivers :spawning stock and egg deposition and attainment of CLs -",site," (",year,") 
 #                  Conservation Limit = ",round(mean(CL_eggs/1e6),2)," (milliions / using 3 eggs/m²) /!\ revised from data in 2016 by Buoro & Prévost
 #                  ",sep=""), con)
-write.csv( round(table,2), con, row.names = FALSE)
+write.csv( table, con, row.names = FALSE)
 close(con)
 
 
@@ -187,15 +187,15 @@ CL_eggs <- 0.12 # extracted from table 8 CIEM
 #CL_eggs = 0.12 # issue des tableaux CIEM, A REVOIR!!!
 ratio_CL <- eggs_tot / (CL_eggs * 1e6)
 
-table[,"eggs (million)"] <- eggs_tot / 1e6 # depose eggs
-table[,"eggs/CL"] <- ratio_CL
+table[,"eggs (million)"] <- round(eggs_tot / 1e6, 2) # depose eggs
+table[,"eggs/CL"] <- round(ratio_CL, 2)
 
 #write.csv(round(table,2), file=paste('~/Documents/RESEARCH/PROJECTS/ORE/Abundance/CIEM/Table8_',site,"_",year,'.csv',sep=""))
 con <- file(paste('~/Documents/RESEARCH/PROJECTS/ORE/CIEM/Table8_',site,"_",year,'.csv',sep=""), open="wt")
 # writeLines(paste("# Table 8 - Index rivers :spawning stock and egg deposition and attainment of CLs -",site," (",year,") 
 #                                   Conservation Limit =",CL_eggs," (millions)
 #                  ",sep=""), con)
-write.csv( round(table,2), con, row.names = FALSE)
+write.csv( table, con, row.names = FALSE)
 close(con)
 
 
@@ -239,15 +239,15 @@ eggs_tot <- apply(eggs_tot.mcmc,2,quantile, probs=0.5) #median
 CL_eggs <- 0.36 # extracted from table 8 CIEM
 ratio_CL <- eggs_tot / (CL_eggs * 1e6)
 
-table[,"eggs (million)"] <- eggs_tot / 1e6 # depose eggs
-table[,"eggs/CL"] <- ratio_CL
+table[,"eggs (million)"] <- round(eggs_tot / 1e6, 2) # depose eggs
+table[,"eggs/CL"] <- round(ratio_CL, 2)
 
 #write.csv(round(table,2), file=paste('~/Documents/RESEARCH/PROJECTS/ORE/Abundance/CIEM/Table8_',site,"_",year,'.csv',sep=""))
 con <- file(paste('~/Documents/RESEARCH/PROJECTS/ORE/CIEM/Table8_',site,"_",year,'.csv',sep=""), open="wt")
 # writeLines(paste("# Table 8 - Index rivers :spawning stock and egg deposition and attainment of CLs -",site," (",year,") 
 #                                   Conservation Limit =",CL_eggs," (millions)
 #                  ",sep=""), con)
-write.csv( round(table,2), con, row.names = FALSE)
+write.csv( table, con, row.names = FALSE)
 close(con)
 
 
@@ -287,7 +287,7 @@ table[y,3] <- n_1SW[y+2] + n_MSW[y+3] # Parr 0+ become 1SW 2 years later / MSW 3
 }
 
 ## SURVIVAL
-table[,4] <- (table[,3] / table[,2])*100
+table[,4] <- round((table[,3] / table[,2])*100, 1)
 
 #write.csv(round(table,2), file=paste('~/Documents/RESEARCH/PROJECTS/ORE/Abundance/CIEM/Table9_',site,"_",year,'.csv',sep=""))
 con <- file(paste('~/Documents/RESEARCH/PROJECTS/ORE/CIEM/Table9_',site,"_",year,'.csv',sep=""), open="wt")
@@ -297,7 +297,7 @@ con <- file(paste('~/Documents/RESEARCH/PROJECTS/ORE/CIEM/Table9_',site,"_",year
 #                   These are estimated trap-return numbers of wild fish except in 94-95 years in Nivelle when some stocked fish returned. 
 #                  Stocking is considered to adjust numbers"
 #                   ,sep=""), con)
-write.csv( round(table,2), con, row.names = FALSE)
+write.csv( table, con, row.names = FALSE)
 close(con)
 
 
@@ -327,7 +327,7 @@ for (y in 1:(nrow(table))){
 }
 
 ## SURVIVAL
-table[,4] <- (table[,3] / table[,2])*100 
+table[,4] <- round((table[,3] / table[,2])*100, 1)
 
 #write.csv(round(table,2), file=paste('~/Documents/RESEARCH/PROJECTS/ORE/Abundance/CIEM/Table9_',site,"_",year,'.csv',sep=""))
 con <- file(paste('~/Documents/RESEARCH/PROJECTS/ORE/CIEM/Table9_',site,"_",year,'.csv',sep=""), open="wt")
@@ -337,7 +337,7 @@ con <- file(paste('~/Documents/RESEARCH/PROJECTS/ORE/CIEM/Table9_',site,"_",year
 #                   These are estimated trap-return numbers of wild fish except in 94-95 years in Nivelle when some stocked fish returned. 
 #                  Stocking is considered to adjust numbers"
 #                  ,sep=""), con)
-write.csv( round(table,2), con, row.names = FALSE)
+write.csv( table, con, row.names = FALSE)
 close(con)
 
 ##________________________BRESLE (starting in 1984)
@@ -370,7 +370,7 @@ for (y in 1:(nrow(table))){
 }
 
 ## SURVIVAL
-table[,4] <- (table[,3] / table[,2])*100 
+table[,4] <- round((table[,3] / table[,2])*100, 1)
 
 #write.csv(round(table,2), file=paste('~/Documents/RESEARCH/PROJECTS/ORE/Abundance/CIEM/Table9_',site,"_",year,'.csv',sep=""))
 con <- file(paste('~/Documents/RESEARCH/PROJECTS/ORE/CIEM/Table9_',site,"_",year,'.csv',sep=""), open="wt")
@@ -380,7 +380,7 @@ con <- file(paste('~/Documents/RESEARCH/PROJECTS/ORE/CIEM/Table9_',site,"_",year
 #                   These are estimated trap-return numbers of wild fish except in 94-95 years in Nivelle when some stocked fish returned. 
 #                  Stocking is considered to adjust numbers"
 #                  ,sep=""), con)
-write.csv( round(table,2), con, row.names = FALSE)
+write.csv( table, con, row.names = FALSE)
 close(con)
 
 
@@ -413,7 +413,7 @@ for (y in 1:(nrow(table))){
 }
 
 ## SURVIVAL
-table[,4] <- (table[,3] / table[,2])*100 
+table[,4] <- round((table[,3] / table[,2])*100, 1)
 
 #write.csv(round(table,2), file=paste('~/Documents/RESEARCH/PROJECTS/ORE/Abundance/CIEM/Table9_',site,"_",year,'.csv',sep=""))
 con <- file(paste('~/Documents/RESEARCH/PROJECTS/ORE/CIEM/Table9_',site,"_",year,'.csv',sep=""), open="wt")
@@ -423,5 +423,5 @@ con <- file(paste('~/Documents/RESEARCH/PROJECTS/ORE/CIEM/Table9_',site,"_",year
 #                   These are estimated trap-return numbers of wild fish except in 94-95 years in Nivelle when some stocked fish returned. 
 #                  Stocking is considered to adjust numbers"
 #                  ,sep=""), con)
-write.csv( round(table,2), con, row.names = FALSE)
+write.csv( table, con, row.names = FALSE)
 close(con)
