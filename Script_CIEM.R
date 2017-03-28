@@ -6,7 +6,6 @@ year <- 2016
 
 
 
-
 ###################################################################################################################
 ######## Table 7 - Exploitation rate in the rivers Scorff ######
 ###################################################################################################################
@@ -279,8 +278,8 @@ table[,2] <- YOY_tot_q[,"q0.5"]
 ## ADULTS
 stade <- "adult"
 load(paste("~/Documents/RESEARCH/PROJECTS/ORE/Abundance/Nivelle/",stade,"/results/Results_",stade,"_",year,".RData",sep=""))
-n_1SW <- fit$median$c_1SW # spawners 1SW
-n_MSW <- fit$median$c_2SW #+ fit$median$c_3SW # spawners MSW
+n_1SW <- ceiling(fit$median$c_1SW) # spawners 1SW
+n_MSW <- ceiling(fit$median$c_2SW) #+ fit$median$c_3SW # spawners MSW
 
 for (y in 1:(nrow(table))){
 table[y,3] <- n_1SW[y+2] + n_MSW[y+3] # Parr 0+ become 1SW 2 years later / MSW 3 years later; /!\ NA reported if one of the two is missing!!!
@@ -314,13 +313,13 @@ table[,1] <- smolt.years
 ## JUVENILES
 stade <- "smolt"
 load(paste("~/Documents/RESEARCH/PROJECTS/ORE/Abundance/",site,"/",stade,"/results/Results_",stade,"_",year,".RData",sep=""))
-table[,2] <- c(NA,NA,fit$median$Nesc) # capture of smolts started in 1986
+table[,2] <- c(NA,NA, ceiling(fit$median$Nesc)) # capture of smolts started in 1986
 
 ## ADULTS
 stade <- "adult"
 load(paste("~/Documents/RESEARCH/PROJECTS/ORE/Abundance/",site,"/",stade,"/results/Results_",stade,"_",year,".RData",sep=""))
-n_1SW <- fit$median$Nesc_1SW # spawners 1SW
-n_MSW <- fit$median$Nesc_MSW # spawners MSW
+n_1SW <- ceiling(fit$median$Nesc_1SW) # spawners 1SW
+n_MSW <- ceiling(fit$median$Nesc_MSW) # spawners MSW
 
 for (y in 1:(nrow(table))){
   table[y,3] <- n_1SW[y+1] + n_MSW[y+2] # Smolt 1+ become 1SW 1 years later / MSW 2 years later; /!\ NA reported if one of the two is missing!!!
@@ -353,7 +352,7 @@ table[,1] <- smolt.years
 ## JUVENILES (1982 to now ; # /!\ NO CAPTURE IN 1988 to 1991 & 2001)
 stade <- "smolt"
 load(paste("~/Documents/RESEARCH/PROJECTS/ORE/Abundance/",site,"/",stade,"/results/Results_",stade,"_",year,".RData",sep=""))
-Nesc <- fit$median$Nesc # escapement from river
+Nesc <- ceiling(fit$median$Nesc) # escapement from river
 table[1:6,2] <- Nesc[1:6] # 1982 to 1987
 table[11:19,2] <- Nesc[7:15] # 1992 to 2000
 table[21:nrow(table),2] <- Nesc[16:length(Nesc)] # 2002 to now
@@ -362,8 +361,8 @@ table[21:nrow(table),2] <- Nesc[16:length(Nesc)] # 2002 to now
 ## ADULTS (1984 to now)
 stade <- "adult"
 load(paste("~/Documents/RESEARCH/PROJECTS/ORE/Abundance/",site,"/",stade,"/results/Results_",stade,"_",year,".RData",sep=""))
-n_1SW <- ceiling(c(NA,NA,fit$median$n_1SW)) # spawners 1SW
-n_MSW <- ceiling(c(NA,NA,fit$median$n_MSW)) # spawners MSW
+n_1SW <- c(NA,NA,ceiling(fit$median$n_1SW)) # spawners 1SW
+n_MSW <- c(NA,NA,ceiling(fit$median$n_MSW)) # spawners MSW
 
 for (y in 1:(nrow(table))){
   table[y,3] <- n_1SW[y+1] + n_MSW[y+2] # Smolt 1+ become 1SW 1 years later / MSW 2 years later; /!\ NA reported if one of the two is missing!!!
@@ -397,7 +396,7 @@ table[,1] <- smolt.years
 ## JUVENILES from 1995 to now on
 stade <- "smolt"
 load(paste("~/Documents/RESEARCH/PROJECTS/ORE/Abundance/",site,"/",stade,"/results/Results_",stade,"_",year,".RData",sep=""))
-Nesc <- fit$median$Nesc # escapement from river
+Nesc <- ceiling(fit$median$Nesc) # escapement from river
 table[12:nrow(table),2] <- Nesc # 1995 to now
 
 
@@ -405,8 +404,8 @@ table[12:nrow(table),2] <- Nesc # 1995 to now
 ## ADULTS (1984 to now)
 stade <- "adult"
 load(paste("~/Documents/RESEARCH/PROJECTS/ORE/Abundance/",site,"/",stade,"/results/Results_",stade,"_",year,".RData",sep=""))
-n_1SW <- ceiling(c(rep(NA,10), fit$median$e_1SW)) # spawners 1SW
-n_MSW <- ceiling(c(rep(NA,10),fit$median$e_MSW)) # spawners MSW
+n_1SW <- c(rep(NA,10), ceiling(fit$median$e_1SW)) # spawners 1SW
+n_MSW <- c(rep(NA,10), ceiling(fit$median$e_MSW)) # spawners MSW
 
 for (y in 1:(nrow(table))){
   table[y,3] <- n_1SW[y+1] + n_MSW[y+2] # Smolt 1+ become 1SW 1 years later / MSW 2 years later; /!\ NA reported if one of the two is missing!!!
