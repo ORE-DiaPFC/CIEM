@@ -9,7 +9,7 @@ Exploitation rate (table 7), Spawning stock, egg deposition and attainment of CL
 - Table 8 - Index rivers :spawning stock and egg deposition and attainment of CLs  
 Nota: For Nivelle r., spawning stock is females only. 
 
-- Table 9 - Juvenile and adult salmon  numbers (estim.) in-river return rate in the monitored rivers  
+- Table 9 - Juvenile and adult salmon numbers (estim.) in-river return rate in the monitored rivers  
 Nota : juvenile fish are smolts except in r. Nivelle for which they are parrs 0+ (/!\ parr 0+ year is then reported for r. Nivelle). 
 Adult numbers refer to the smolt year N: runs of N+1 and N+2 (/!\ N+2 to N+5 respectively for r. Nivelle according to the river and sea ages of the returning adults of the same cohort; i.e. year of birth).
 These tables are based on wild fish only except for the river Nivelle were juvenile stocking occurred from 1986 to 1995, which contributed to adult returns from 1988 up to 2000.
