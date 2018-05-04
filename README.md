@@ -14,6 +14,8 @@ Nota : juvenile fish are smolts except in r. Nivelle for which they are parrs 0+
 Adult numbers refer to the smolt year N: runs of N+1 and N+2 (/!\ N+2 to N+5 respectively for r. Nivelle according to the river and sea ages of the returning adults of the same cohort; i.e. year of birth).
 These tables are based on wild fish only except for the river Nivelle were juvenile stocking occurred from 1986 to 1995, which contributed to adult returns from 1988 up to 2000.
 
+- Table 10 -  Adult salmon captured (unmarked) at traps in the monitored rivers
+
 # Conservation limits (millions) used: 
 
 - Nivelle: 1.44 
